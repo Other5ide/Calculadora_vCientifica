@@ -20,12 +20,28 @@ class CalculadoraTest {
     }
 
     @Test
+    void testPorcentaje() {
+        assertEquals(10, Calculadora.porcentaje(100, 10));
+    }
+
+    @Test
+    void testPorcentajeNegativo() {
+        assertEquals(-1, Calculadora.porcentaje(100, -10));
+    }
+
+    @Test
     void testResolverCuadraticaNum3Cero() {
-        assertThrows(ArithmeticException.class, () -> {Calculadora.resolverCuadratica(, 0);});
+        assertThrows(ArithmeticException.class, () -> {Calculadora.resolverCuadratica(0,1,1);});
     }
 
     @Test
     void testResolverCuadratica() {
-        assertEquals();
+        double[] resultado = {-1,-1};
+        assertArrayEquals(resultado, Calculadora.resolverCuadratica(1,2,1));
+    }
+
+    @Test
+    void testResolverCuadraticaImaginario() {
+        assertArrayEquals(null, Calculadora.resolverCuadratica(1,2,8000));
     }
 }
