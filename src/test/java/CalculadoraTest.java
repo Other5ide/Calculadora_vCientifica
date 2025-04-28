@@ -35,9 +35,8 @@ class CalculadoraTest {
     }
 
     @Test
-    void testResolverCuadratica() {
-        double[] resultado = {-1,-1};
-        assertArrayEquals(resultado, Calculadora.resolverCuadratica(1,2,1));
+    void testResolverCuadraticaUnaSolucion() {
+        assertArrayEquals(new double[]{-1,-1}, Calculadora.resolverCuadratica(1,2,1));
     }
 
     @Test
