@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Calculadora {
@@ -201,7 +202,7 @@ public class Calculadora {
             try {
                 System.out.println(mensaje);
                 return scanner.nextDouble();
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Error. Ingresar número válido.");
                 scanner.nextLine();
             }
