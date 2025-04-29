@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Calculadora {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
     }
@@ -207,6 +207,7 @@ public class Calculadora {
             }
         }
     }
+
 
 }
 
