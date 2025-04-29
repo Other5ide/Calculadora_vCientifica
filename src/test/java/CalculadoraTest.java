@@ -1,12 +1,16 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculadoraTest {
-    
+
     @BeforeEach
     void setUp() {
+        InputStream originalSystemIn = System.in;
     }
 
     @Test
@@ -20,4 +24,13 @@ class CalculadoraTest {
             Calculadora.potencia(0.0, -2.0);
         });
     }
+
+    @Test
+    void divPor0() {
+        assertThrows(ArithmeticException.class, () -> {
+            Calculadora.dividir(6.0, 0.0);
+        });
     }
+
+
+}
