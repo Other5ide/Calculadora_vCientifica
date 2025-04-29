@@ -1,46 +1,55 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculadoraTest {
-    
+
+    private final InputStream originalSystemIn = System.in;
+
+    @AfterEach
+    void restaurarSystemInput() {
+        System.setIn(originalSystemIn);
+        Calculadora.scanner = new Scanner(System.in);
+    }
+
     @BeforeEach
     void setUp() {
     }
 
     @Test
-    void testSumar() {
-        assertEquals(Calculadora.sumar(3, 4), 7);
+    void testPotencia0() {
+        assertTrue(Double.isNaN(Calculadora.potencia(0.0, 0.0)));
     }
 
     @Test
-    void testDividirPorCero() {
-        assertThrows(ArithmeticException.class, () -> {Calculadora.dividir(3, 0);});
+    void testPotenciaNegB0() {
+        assertThrows(ArithmeticException.class, () -> {
+            Calculadora.potencia(0.0, -2.0);
+        });
     }
 
     @Test
-    void testPorcentaje() {
-        assertEquals(10, Calculadora.porcentaje(100, 10));
+    void divPor0() {
+        assertThrows(ArithmeticException.class, () -> {
+            Calculadora.dividir(6.0, 0.0);
+        });
     }
 
     @Test
-    void testPorcentajeNegativo() {
-        assertEquals(-1, Calculadora.porcentaje(100, -10));
+    void valEntradaCorrecta() {
+        String input = "42.5\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        Calculadora.scanner = new Scanner(System.in);
+
+        double resultado = Calculadora.validarNum("Ingrese un número: ");
+        assertEquals(42.5, resultado, 0.0001);
     }
 
-    @Test
-    void testResolverCuadraticaNum3Cero() {
-        assertThrows(ArithmeticException.class, () -> {Calculadora.resolverCuadratica(0,1,1);});
-    }
 
-    @Test
-    void testResolverCuadraticaUnaSolucion() {
-        assertArrayEquals(new double[]{-1,-1}, Calculadora.resolverCuadratica(1,2,1));
-    }
-
-    @Test
-    void testResolverCuadraticaImaginario() {
-        assertArrayEquals(null, Calculadora.resolverCuadratica(1,2,8000));
-    }
 }

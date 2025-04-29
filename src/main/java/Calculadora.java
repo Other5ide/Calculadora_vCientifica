@@ -1,6 +1,9 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Calculadora {
+
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
     }
@@ -16,7 +19,7 @@ public class Calculadora {
     }
     public static double dividir(double num1, double num2) {
         if (num2 == 0) {
-            throw new ArithmeticException("No puedes dividir entre 0"); //TODO: Requiere un manejo de excepcion
+            throw new ArithmeticException("Error matemático: No se puede dividir por 0"); //TODO: Requiere un manejo de excepcion
         }
         return num1 / num2;
     }
@@ -41,6 +44,14 @@ public class Calculadora {
     }
 
     public static double potencia(double num1, double potencia) {
+        // Potencia a 0
+        if (num1 == 0 && potencia == 0) {
+            return Double.NaN;
+        }
+        // Potencia negativa
+        if (num1 == 0 && potencia < 0) {
+            throw new ArithmeticException("0 no es posible a elevar por un exponente negativo.");
+        }
         return Math.pow(num1, potencia);
     }
 
@@ -58,11 +69,20 @@ public class Calculadora {
             System.out.println("El resultado da un numero imaginario.");
             return null; //TODO: Cuando el otro metodo reciba este valor, debe reconocer que es un valor invalido
         }
+        // Manejo errores por usar división
+        try {
+            double sqrtDiscriminante = Math.sqrt(discriminante);
+            double denominador = 2 * num1;
 
-        double sol1 = dividir((-num2 + (Math.sqrt(Math.pow(num2,2)-4*num1*num3))), 2*num1);
-        double sol2 = dividir((-num2 - (Math.sqrt(Math.pow(num2,2)-4*num1*num3))), 2*num1);
+            double sol1 = dividir(-num2 + sqrtDiscriminante, denominador);
+            double sol2 = dividir(-num2 - sqrtDiscriminante, denominador);
 
-        return new double[]{sol1, sol2};
+            return new double[] {sol1, sol2};
+        } catch (ArithmeticException e) {
+            // Ocurre solo si hay un error inesperado.
+            throw new ArithmeticException("Error al calcular raíces.");
+        }
+
     }
 
     public static double perimetroCirculo(double radio) {
@@ -176,6 +196,19 @@ public class Calculadora {
         return null; //TODO: Cuando el otro metodo reciba este valor, debe reconocer que es un valor invalido
         }
     }
+
+    public static double validarNum(String mensaje) {
+        while (true) {
+            try {
+                System.out.println(mensaje);
+                return scanner.nextDouble();
+            } catch (InputMismatchException e) {
+                System.out.println("Error. Ingresar número válido.");
+                scanner.nextLine();
+            }
+        }
+    }
+
 
 }
 
