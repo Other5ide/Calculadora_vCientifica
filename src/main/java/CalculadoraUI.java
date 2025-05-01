@@ -410,6 +410,15 @@ public class CalculadoraUI {
     }
 
     private static void ecuacionRecta() {
-        System.out.println("Ecuación de la recta.");
+        double x1 = obtenerNumero("Ingrese x1: ");
+        double y1 = obtenerNumero("Ingrese y1: ");
+        double x2 = obtenerNumero("Ingrese x2: ");
+        double y2 = obtenerNumero("Ingrese y2: ");
+        try {
+            double[] resultados = Calculadora.ecuacionRecta(x1, y1, x2, y2);
+            System.out.println("La ecuación de la recta es: y = " + resultados[0] + "x + " + resultados[1]);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
