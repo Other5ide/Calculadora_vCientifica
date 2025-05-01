@@ -13,6 +13,7 @@ public class CalculadoraUI {
         do {
             mostrarOpciones();
             option = obtenerOpcion();
+            ejecutarOpcion(option);
         } while (option != 6);
     }
 
@@ -38,5 +39,45 @@ public class CalculadoraUI {
             } catch (Exception e) {}
             System.out.print("Ingrese un número entero entre 1 y 6: ");
         }
+    }
+
+    private static void ejecutarOpcion(int option) {
+        switch (option) {
+            case 1:
+                operacionesAritmeticas();
+                break;
+            case 2:
+                ecuacionCuadratica();
+                break;
+            case 3:
+                figurasGeometricas();
+                break;
+            case 4:
+                sistemaEcuacionesLineales();
+                break;
+            case 5:
+                ecuacionRecta();
+                break;
+        }
+    }
+
+    private static void operacionesAritmeticas() {
+        System.out.println("Operaciones aritméticas.");
+    }
+
+    private static void ecuacionCuadratica() {
+        System.out.println("Ecuación cuadrática.");
+    }
+
+    private static void figurasGeometricas() {
+        System.out.println("Figuras geométricas.");
+    }
+
+    private static void sistemaEcuacionesLineales() {
+        System.out.println("Sistema de ecuaciones lineales.");
+    }
+
+    private static void ecuacionRecta() {
+        System.out.println("Ecuación de la recta.");
     }
 }
