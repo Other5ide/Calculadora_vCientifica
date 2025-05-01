@@ -301,7 +301,14 @@ public class CalculadoraUI {
     }
 
     private static void areaRectangulo() {
-        System.out.println("Área de un rectángulo.");
+        double alto = obtenerNumero("Ingrese el alto del rectángulo: ");
+        double ancho = obtenerNumero("Ingrese el ancho del rectángulo: ");
+        try {
+            double resultado = Calculadora.areaRectangulo(alto, ancho);
+            System.out.println("El área del rectángulo es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void perimetroCuadrado() {
