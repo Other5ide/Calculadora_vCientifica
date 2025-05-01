@@ -280,7 +280,13 @@ public class CalculadoraUI {
     }
 
     private static void areaCirculo() {
-        System.out.println("Área de un círculo.");
+        double radio = obtenerNumero("Ingrese el radio del círculo: ");
+        try {
+            double resultado = Calculadora.areaCirculo(radio);
+            System.out.println("El área del círculo es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void perimetroRectangulo() {
