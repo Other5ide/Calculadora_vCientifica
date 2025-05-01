@@ -99,7 +99,7 @@ public class CalculadoraUI {
                 menor();
                 break;
             case 7:
-                System.out.println("Potencia.");
+                potencia();
                 break;
             case 8:
                 System.out.println("Porcentaje.");
@@ -159,6 +159,17 @@ public class CalculadoraUI {
         try {
             double resultado = Calculadora.menor(num1, num2);
             System.out.println("El número menor es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void potencia() {
+        double num1 = obtenerNumero("Ingrese la base: ");
+        double potencia = obtenerNumero("Ingrese el exponente: ");
+        try {
+            double resultado = Calculadora.potencia(num1, potencia);
+            System.out.println("El resultado de la potencia es: " + resultado);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
