@@ -372,7 +372,14 @@ public class CalculadoraUI {
     }
 
     private static void areaCono() {
-        System.out.println("Área de un cono.");
+        double radio = obtenerNumero("Ingrese el radio del cono: ");
+        double altura = obtenerNumero("Ingrese la altura del cono: ");
+        try {
+            double resultado = Calculadora.areaCono(radio, altura);
+            System.out.println("El área del cono es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void volumenCono() {
