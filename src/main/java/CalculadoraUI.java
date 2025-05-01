@@ -312,7 +312,13 @@ public class CalculadoraUI {
     }
 
     private static void perimetroCuadrado() {
-        System.out.println("Perímetro de un cuadrado.");
+        double lado = obtenerNumero("Ingrese el lado del cuadrado: ");
+        try {
+            double resultado = Calculadora.perimetroCuadrado(lado);
+            System.out.println("El perímetro del cuadrado es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void areaCuadrado() {
