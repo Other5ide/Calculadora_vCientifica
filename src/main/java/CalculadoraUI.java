@@ -332,7 +332,13 @@ public class CalculadoraUI {
     }
 
     private static void volumenEsfera() {
-        System.out.println("Volumen de una esfera.");
+        double radio = obtenerNumero("Ingrese el radio de la esfera: ");
+        try {
+            double resultado = Calculadora.volumenEsfera(radio);
+            System.out.println("El volumen de la esfera es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void areaEsfera() {
