@@ -342,7 +342,13 @@ public class CalculadoraUI {
     }
 
     private static void areaEsfera() {
-        System.out.println("Área de una esfera.");
+        double radio = obtenerNumero("Ingrese el radio de la esfera: ");
+        try {
+            double resultado = Calculadora.areaEsfera(radio);
+            System.out.println("El área de la esfera es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void areaCubo() {
