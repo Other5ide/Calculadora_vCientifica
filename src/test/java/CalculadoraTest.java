@@ -308,6 +308,21 @@ class CalculadoraTest {
     }
 
     @Test
+    void ecuacionRecta() {
+        double[] resultado = Calculadora.ecuacionRecta(1, 1, 2, 2);
+        assertEquals(1, resultado[0]);
+        assertEquals(0, resultado[1]);
+    }
+
+    @Test
+    void ecuacionRectaPendienteCero() {
+        Exception exception = assertThrows(ArithmeticException.class, () -> {
+            Calculadora.ecuacionRecta(1, 1, 1, 2);
+        });
+        assertEquals("La pendiente esta indefinida.", exception.getMessage());
+    }
+
+    @Test
     void valEntradaCorrecta() {
         String input = "42.5\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
