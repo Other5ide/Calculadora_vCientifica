@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class CalculadoraUI {
-    private static Scanner scanner = new Scanner(System.in);
-    private static Calculadora calculadora = new Calculadora();
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         menu();
@@ -82,7 +81,7 @@ public class CalculadoraUI {
     private static void ejecutarOperacionAritmetica(int option) {
         switch (option) {
             case 1:
-                System.out.println("Suma.");
+                suma();
                 break;
             case 2:
                 System.out.println("Resta.");
@@ -108,6 +107,23 @@ public class CalculadoraUI {
             case 9:
                 System.out.println("Raíz cuadrada.");
                 break;
+        }
+    }
+
+    private static void suma() {
+        double num1 = obtenerNumero("Ingrese el primer número: ");
+        double num2 = obtenerNumero("Ingrese el segundo número: ");
+        double resultado = Calculadora.sumar(num1, num2);
+        System.out.println("El resultado de la suma es: " + resultado);
+    }
+
+    private static double obtenerNumero(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            String input = scanner.nextLine().trim();
+            try {
+                return Double.parseDouble(input);
+            } catch (Exception e) {}
         }
     }
 
