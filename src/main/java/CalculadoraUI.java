@@ -270,7 +270,13 @@ public class CalculadoraUI {
     }
 
     private static void perimetroCirculo() {
-        System.out.println("Perímetro de un círculo.");
+        double radio = obtenerNumero("Ingrese el radio del círculo: ");
+        try {
+            double resultado = Calculadora.perimetroCirculo(radio);
+            System.out.println("El perímetro del círculo es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void areaCirculo() {
