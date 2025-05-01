@@ -87,7 +87,7 @@ public class CalculadoraUI {
                 resta();
                 break;
             case 3:
-                System.out.println("Producto.");
+                multiplicacion();
                 break;
             case 4:
                 System.out.println("División.");
@@ -122,6 +122,13 @@ public class CalculadoraUI {
         double num2 = obtenerNumero("Ingrese el segundo número: ");
         double resultado = Calculadora.restar(num1, num2);
         System.out.println("El resultado de la resta es: " + resultado);
+    }
+
+    private static void multiplicacion() {
+        double num1 = obtenerNumero("Ingrese el primer número: ");
+        double num2 = obtenerNumero("Ingrese el segundo número: ");
+        double resultado = Calculadora.producto(num1, num2);
+        System.out.println("El resultado de la multiplicación es: " + resultado);
     }
 
     private static double obtenerNumero(String mensaje) {
