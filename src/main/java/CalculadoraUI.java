@@ -362,7 +362,13 @@ public class CalculadoraUI {
     }
 
     private static void volumenCubo() {
-        System.out.println("Volumen de un cubo.");
+        double lado = obtenerNumero("Ingrese el lado del cubo: ");
+        try {
+            double resultado = Calculadora.volumenCubo(lado);
+            System.out.println("El volumen del cubo es : " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void areaCono() {
