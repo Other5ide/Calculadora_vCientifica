@@ -96,7 +96,7 @@ public class CalculadoraUI {
                 mayor();
                 break;
             case 6:
-                System.out.println("Menor.");
+                menor();
                 break;
             case 7:
                 System.out.println("Potencia.");
@@ -148,6 +148,17 @@ public class CalculadoraUI {
         try {
             double resultado = Calculadora.mayor(num1, num2);
             System.out.println("El número mayor es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void menor() {
+        double num1 = obtenerNumero("Ingrese el primer número: ");
+        double num2 = obtenerNumero("Ingrese el segundo número: ");
+        try {
+            double resultado = Calculadora.menor(num1, num2);
+            System.out.println("El número menor es: " + resultado);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
