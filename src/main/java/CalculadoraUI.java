@@ -290,7 +290,14 @@ public class CalculadoraUI {
     }
 
     private static void perimetroRectangulo() {
-        System.out.println("Perímetro de un rectángulo.");
+        double alto = obtenerNumero("Ingrese el alto del rectángulo: ");
+        double ancho = obtenerNumero("Ingrese el ancho del rectángulo: ");
+        try {
+            double resultado = Calculadora.perimetroRectangulo(alto, ancho);
+            System.out.println("El perímetro del rectángulo es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void areaRectangulo() {
