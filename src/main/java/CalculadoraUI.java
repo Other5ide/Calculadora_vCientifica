@@ -383,7 +383,14 @@ public class CalculadoraUI {
     }
 
     private static void volumenCono() {
-        System.out.println("Volumen de un cono.");
+        double radio = obtenerNumero("Ingrese el radio del cono: ");
+        double altura = obtenerNumero("Ingrese la altura del cono: ");
+        try {
+            double resultado = Calculadora.volumenCono(radio, altura);
+            System.out.println("El volumen del cono es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void sistemaEcuacionesLineales() {
