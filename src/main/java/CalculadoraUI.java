@@ -394,7 +394,19 @@ public class CalculadoraUI {
     }
 
     private static void sistemaEcuacionesLineales() {
-        System.out.println("Sistema de ecuaciones lineales.");
+        System.out.println("Ingrese los coeficientes del sistema de ecuaciones lineales (ax + by = c, dx + ey = f):");
+        double a = obtenerNumero("a: ");
+        double b = obtenerNumero("b: ");
+        double c = obtenerNumero("c: ");
+        double d = obtenerNumero("d: ");
+        double e = obtenerNumero("e: ");
+        double f = obtenerNumero("f: ");
+        try {
+            double[] resultados = Calculadora.resolverSistemaEcuacionesLineales(a, b, c, d, e, f);
+            System.out.println("Las soluciones son: x = " + resultados[0] + ", y = " + resultados[1]);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 
     private static void ecuacionRecta() {
