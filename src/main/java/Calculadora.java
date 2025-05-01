@@ -185,6 +185,15 @@ public class Calculadora {
         return new double[]{x, y};
     }
 
+    public static double[] ecuacionRecta(double x1, double y1, double x2, double y2) {
+        if (x1 == x2) {
+            throw new ArithmeticException("La pendiente esta indefinida.");
+        }
+        double m = (y2 - y1) / (x2 - x1);
+        double b = y1 - m * x1;
+        return new double[]{m, b};
+    }
+
     public static double validarNum(String mensaje) {
         while (true) {
             try {
