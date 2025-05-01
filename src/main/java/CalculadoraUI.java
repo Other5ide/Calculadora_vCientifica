@@ -322,7 +322,13 @@ public class CalculadoraUI {
     }
 
     private static void areaCuadrado() {
-        System.out.println("Área de un cuadrado.");
+        double lado = obtenerNumero("Ingrese el lado del cuadrado: ");
+        try {
+            double resultado = Calculadora.areaCuadrado(lado);
+            System.out.println("El área del cuadrado es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void volumenEsfera() {
