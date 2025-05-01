@@ -84,7 +84,7 @@ public class CalculadoraUI {
                 suma();
                 break;
             case 2:
-                System.out.println("Resta.");
+                resta();
                 break;
             case 3:
                 System.out.println("Producto.");
@@ -115,6 +115,13 @@ public class CalculadoraUI {
         double num2 = obtenerNumero("Ingrese el segundo número: ");
         double resultado = Calculadora.sumar(num1, num2);
         System.out.println("El resultado de la suma es: " + resultado);
+    }
+
+    private static void resta() {
+        double num1 = obtenerNumero("Ingrese el primer número: ");
+        double num2 = obtenerNumero("Ingrese el segundo número: ");
+        double resultado = Calculadora.restar(num1, num2);
+        System.out.println("El resultado de la resta es: " + resultado);
     }
 
     private static double obtenerNumero(String mensaje) {
