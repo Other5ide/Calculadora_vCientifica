@@ -194,7 +194,16 @@ public class CalculadoraUI {
     }
 
     private static void ecuacionCuadratica() {
-        System.out.println("Ecuación cuadrática.");
+        System.out.println("Ingrese los coeficientes de la ecuación cuadrática (ax^2 + bx + c = 0):");
+        double a = obtenerNumero("a: ");
+        double b = obtenerNumero("b: ");
+        double c = obtenerNumero("c: ");
+        try {
+            double[] resultados = Calculadora.resolverCuadratica(a, b, c);
+            System.out.println("Las soluciones son: x1 = " + resultados[0] + ", x2 = " + resultados[1]);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void figurasGeometricas() {
