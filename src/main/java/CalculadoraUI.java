@@ -90,7 +90,7 @@ public class CalculadoraUI {
                 multiplicacion();
                 break;
             case 4:
-                System.out.println("División.");
+                division();
                 break;
             case 5:
                 System.out.println("Mayor.");
@@ -129,6 +129,17 @@ public class CalculadoraUI {
         double num2 = obtenerNumero("Ingrese el segundo número: ");
         double resultado = Calculadora.producto(num1, num2);
         System.out.println("El resultado de la multiplicación es: " + resultado);
+    }
+
+    private static void division() {
+        double num1 = obtenerNumero("Ingrese el primer número: ");
+        double num2 = obtenerNumero("Ingrese el segundo número: ");
+        try {
+            double resultado = Calculadora.dividir(num1, num2);
+            System.out.println("El resultado de la división es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static double obtenerNumero(String mensaje) {
