@@ -207,7 +207,114 @@ public class CalculadoraUI {
     }
 
     private static void figurasGeometricas() {
-        System.out.println("Figuras geométricas.");
+        mostrarOpcionesFigurasGeometricas();
+        int option = obtenerOpcion(1, 13);
+        ejecutarOpcionFigurasGeometricas(option);
+    }
+
+    private static void mostrarOpcionesFigurasGeometricas() {
+        System.out.println("[1] Perímetro de un círculo");
+        System.out.println("[2] Área de un círculo");
+        System.out.println("[3] Perímetro de un rectángulo");
+        System.out.println("[4] Área de un rectángulo");
+        System.out.println("[5] Perímetro de un cuadrado");
+        System.out.println("[6] Área de un cuadrado");
+        System.out.println("[7] Volumen de una esfera");
+        System.out.println("[8] Área de una esfera");
+        System.out.println("[9] Área de un cubo");
+        System.out.println("[10] Volumen de un cubo");
+        System.out.println("[11] Área de un cono");
+        System.out.println("[12] Volumen de un cono");
+        System.out.println("[13] Regresar al menú principal");
+    }
+
+    private static void ejecutarOpcionFigurasGeometricas(int option) {
+        switch (option) {
+            case 1:
+                perimetroCirculo();
+                break;
+            case 2:
+                areaCirculo();
+                break;
+            case 3:
+                perimetroRectangulo();
+                break;
+            case 4:
+                areaRectangulo();
+                break;
+            case 5:
+                perimetroCuadrado();
+                break;
+            case 6:
+                areaCuadrado();
+                break;
+            case 7:
+                volumenEsfera();
+                break;
+            case 8:
+                areaEsfera();
+                break;
+            case 9:
+                areaCubo();
+                break;
+            case 10:
+                volumenCubo();
+                break;
+            case 11:
+                areaCono();
+                break;
+            case 12:
+                volumenCono();
+                break;
+        }
+    }
+
+    private static void perimetroCirculo() {
+        System.out.println("Perímetro de un círculo.");
+    }
+
+    private static void areaCirculo() {
+        System.out.println("Área de un círculo.");
+    }
+
+    private static void perimetroRectangulo() {
+        System.out.println("Perímetro de un rectángulo.");
+    }
+
+    private static void areaRectangulo() {
+        System.out.println("Área de un rectángulo.");
+    }
+
+    private static void perimetroCuadrado() {
+        System.out.println("Perímetro de un cuadrado.");
+    }
+
+    private static void areaCuadrado() {
+        System.out.println("Área de un cuadrado.");
+    }
+
+    private static void volumenEsfera() {
+        System.out.println("Volumen de una esfera.");
+    }
+
+    private static void areaEsfera() {
+        System.out.println("Área de una esfera.");
+    }
+
+    private static void areaCubo() {
+        System.out.println("Área de un cubo.");
+    }
+
+    private static void volumenCubo() {
+        System.out.println("Volumen de un cubo.");
+    }
+
+    private static void areaCono() {
+        System.out.println("Área de un cono.");
+    }
+
+    private static void volumenCono() {
+        System.out.println("Volumen de un cono.");
     }
 
     private static void sistemaEcuacionesLineales() {
