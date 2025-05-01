@@ -102,10 +102,7 @@ public class CalculadoraUI {
                 potencia();
                 break;
             case 8:
-                System.out.println("Porcentaje.");
-                break;
-            case 9:
-                System.out.println("Raíz cuadrada.");
+                porcentaje();
                 break;
         }
     }
@@ -170,6 +167,17 @@ public class CalculadoraUI {
         try {
             double resultado = Calculadora.potencia(num1, potencia);
             System.out.println("El resultado de la potencia es: " + resultado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void porcentaje() {
+        double num1 = obtenerNumero("Ingrese el número: ");
+        double porcentaje = obtenerNumero("Ingrese el porcentaje: ");
+        try {
+            double resultado = Calculadora.porcentaje(num1, porcentaje);
+            System.out.println("El " + porcentaje + "% de " + num1 + " es: " + resultado);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
